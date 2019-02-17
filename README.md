@@ -11,10 +11,18 @@ for creating an API.
 ## How To Install
 
 ### Composer Setup
-`composer require andreaspabst/laravel-make-complete-model-set`
+`composer require --dev andreaspabst/laravel-make-complete-model-set`
+
+### Register Service Provider
+After installing the package via composer, you have to add the Service Provider to your `config/app.php`
+```
+...
+AndreasPabst\LaravelMakeCompleteModelSet\LaravelMakeCompleteModelSetServiceProvider::class,
+...
+```
 
 ## How To Call
-`php artisan laravel-make_full_api_resources`
+`php artisan make:complete-model-set`
 
 It will be a guided wizard through the creating steps.
 
