@@ -74,7 +74,7 @@ If you discover any security related issues, please email management@andreaspabs
 # Postcardware
 You're free to use this package, but if it makes it to your product we highly appreciate you sending us a postcard from your hometown, mentioning which of our package(s) you are using.
 
-Our address is provided on [Andreas Pabst.com](www.andreaspabst.com)
+Our address is provided on [Andreas Pabst.com](https://www.andreaspabst.com)
 
 We publish all received postcards on our website.
 
