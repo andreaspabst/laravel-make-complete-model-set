@@ -23,7 +23,7 @@ It will be a guided wizard through the creating steps.
 ```
 $ php artisan make:complete-model-set
 
-Generating complete controller set
+Generating complete controller set 
 
  Enter the Model Name...:
  > Post 
