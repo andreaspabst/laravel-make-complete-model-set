@@ -67,3 +67,19 @@ Generating complete controller set
 
 ## Other stuff...
 Have Fun Using!
+
+# Security
+If you discover any security related issues, please email management@andreaspabst.com instead of using the issue tracker.
+
+# Postcardware
+You're free to use this package, but if it makes it to your product we highly appreciate you sending us a postcard from your hometown, mentioning which of our package(s) you are using.
+
+Our address is provided on [Andreas Pabst.com](www.andreaspabst.com)
+
+We publish all received postcards on our website.
+
+# Credits
+Andreas Pabst
+
+# License
+The MIT License (MIT). Please see License File for more information.
