@@ -1,0 +1,92 @@
+<?php
+
+namespace DummyNamespace;
+
+use DummyRootNamespaceHttp\Requests\DummyModel\DummyModelShowRequest;
+use DummyRootNamespaceHttp\Requests\DummyModel\DummyModelUpdateRequest;
+use DummyRootNamespaceHttp\Requests\DummyModel\DummyModelStoreRequest;
+use DummyRootNamespaceHttp\Requests\DummyModel\DummyModelIndexRequest;
+use DummyRootNamespaceHttp\Requests\DummyModel\DummyModelDestroyRequest;
+use DummyRootNamespaceHelpers\DestroyModelHelper;
+use DummyRootNamespaceHttp\Controllers\Controller;
+use DummyRootNamespaceDummyModel;
+use Spatie\QueryBuilder\QueryBuilder;
+
+/**
+ * @resource DummyModel
+ *
+ * Dealing with DummyClass
+ * @package DummyNamespace
+ */
+class DummyClass extends Controller
+{
+    /**
+     * Display a listing of the resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function index(DummyModelIndexRequest $request)
+    {
+        $query = GetIndexQueryHelper::getQuery([], "DummyModelStrToLowers");
+            if (!$query) { // none of the parameters has been given in this context
+                $query = DummyModel::class;
+            }
+
+            $collection = QueryBuilder::for($query)
+                ->allowedFilters('name')
+                ->jsonPaginate();
+
+            return $collection;
+    }
+
+    /**
+     * Store a newly created resource in storage.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @return \Illuminate\Http\Response
+     */
+    public function store(DummyModelStoreRequest $request)
+    {
+        $DummyModelStrToLower = DummyModel::create($request->all());
+
+        return ($DummyModelStrToLower) ?
+            new \DummyRootNamespaceHttp\Resources\DummyModel($DummyModelStrToLower) :
+            response()->json(['error' => 'Failed.'], 400);
+    }
+
+    /**
+     * Display the specified resource.
+     *
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function show(DummyModelShowRequest $request, DummyModel $DummyModelStrToLower)
+    {
+        return new \DummyRootNamespaceHttp\Resources\DummyModel($DummyModelStrToLower);
+    }
+
+    /**
+     * Update the specified resource in storage.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function update(DummyModelUpdateRequest $request, DummyModel $DummyModelStrToLower)
+    {
+        return ($DummyModelStrToLower->update($request->all())) ?
+            new \DummyRootNamespaceHttp\Resources\DummyModel($DummyModelStrToLower) :
+            response()->json(['error' => 'Failed.'], 400);
+    }
+
+    /**
+     * Remove the specified resource from storage.
+     *
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function destroy(DummyModelDestroyRequest $request, DummyModel $DummyModelStrToLower)
+    {
+        return DestroyModelHelper::destroy($DummyModelStrToLower);
+    }
+}

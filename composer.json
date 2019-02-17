@@ -1,0 +1,19 @@
+{
+    "name": "andreaspabst/laravel-make-complete-model-set",
+    "description": "Creates Model, Resource,",
+    "authors": [
+        {
+            "name": "Andreas Pabst",
+            "email": "management@andreaspabst.com"
+        }
+    ],
+    "minimum-stability": "dev",
+    "require": {
+        "spatie/laravel-query-builder": "^1.12"
+    },
+    "autoload": {
+        "psr-4": {
+            "AndreasPabst\\LaravelMakeCompleteModelSet\\": "src/"
+        }
+    }
+}
